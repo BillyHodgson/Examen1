@@ -76,5 +76,8 @@
     <Build Include="dbo\StoreProcedure\Puesto\ActualizarPuesto.sql" />
     <Build Include="dbo\StoreProcedure\Puesto\EliminarPuesto.sql" />
     <Build Include="dbo\StoreProcedure\Departamento\DepartamentoObtener.sql" />
+    <Build Include="dbo\StoreProcedure\Departamento\DepartamentoActualizar.sql" />
+    <Build Include="dbo\StoreProcedure\Departamento\DepartamentoEliminar.sql" />
+    <Build Include="dbo\StoreProcedure\Departamento\DepartamentoInsertar.sql" />
   </ItemGroup>
 </Project>
