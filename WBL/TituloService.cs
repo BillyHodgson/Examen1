@@ -32,7 +32,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<TituloEntity>("TituloObtener");
+                var result = sql.QueryAsync<TituloEntity>("ObtenerTitulo");
 
                 return await result;
 

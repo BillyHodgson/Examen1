@@ -8,7 +8,7 @@ namespace Entity.dbo
 {
     public class PuestosEntity
     {
-        public int Id_Puesto { get; set; }
+        public int? Id_Puesto { get; set; }
 
         public string Nombre { get; set; }
 

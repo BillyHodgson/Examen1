@@ -9,7 +9,7 @@ namespace Entity.dbo
     public class TituloEntity
     {
 
-        public int Id_Titulo { get; set; }
+        public int? Id_Titulo { get; set; }
 
         public string Descripcion { get; set; }
 

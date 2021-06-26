@@ -9,7 +9,16 @@ using System.Threading.Tasks;
 
 namespace WBL
 {
-    public class DepartamentoService
+    public interface IDepartamentoService
+    {
+        Task<DBEntity> Create(DepartamentoEntity entity);
+        Task<DBEntity> Delete(DepartamentoEntity entity);
+        Task<IEnumerable<DepartamentoEntity>> Get();
+        Task<DepartamentoEntity> GetById(DepartamentoEntity entity);
+        Task<DBEntity> Update(DepartamentoEntity entity);
+    }
+
+    public class DepartamentoService : IDepartamentoService
     {
         private readonly IDataAccess sql;
 
@@ -23,7 +32,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<DepartamentoEntity>("ObtenerDepartamento");
+                var result = sql.QueryAsync<DepartamentoEntity>("DepartamentoObtener");
 
                 return await result;
 
@@ -43,7 +52,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryFirstAsync<DepartamentoEntity>("ObtenerDepartamento", new
+                var result = sql.QueryFirstAsync<DepartamentoEntity>("DepartamentoObtener", new
                 {
                     entity.Id_Departamento
                 });
@@ -61,9 +70,8 @@ namespace WBL
         {
             try
             {
-                var result = sql.ExecuteAsync("InsertarDepartamento", new
+                var result = sql.ExecuteAsync("DepartamentoInsertar", new
                 {
-                    entity.Id_Departamento,
                     entity.Descripcion,
                     entity.Ubicacion,
                     entity.Estado
@@ -82,7 +90,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.ExecuteAsync("ActualizarDepartamento", new
+                var result = sql.ExecuteAsync("DepartamentoActualizar", new
                 {
                     entity.Id_Departamento,
                     entity.Descripcion,
@@ -103,7 +111,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.ExecuteAsync("EliminarDepartamento", new
+                var result = sql.ExecuteAsync("DepartamentoEliminar", new
                 {
                     entity.Id_Departamento,
                 });
